@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1 th:text="${title}"/>
+
+    <div class="alert alert-info mt-5">
+        <p><b>All Of Physics</b> - сайт с интересными статьями по физике. <br>
+            Этот сайт является школьным проектом ученика 9-го класса, Суханова Владислава. <br>
+            Целью этого сайта является обьяснение сложных тем по физике простым языком для человека</p>
+        <p>Связь с нами: <br>
+        Email: allofphysic@mail.ru <br>
+        <a href="vk.com/clud200734174">ВКонтакте</a> <br>
+        </p>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>
