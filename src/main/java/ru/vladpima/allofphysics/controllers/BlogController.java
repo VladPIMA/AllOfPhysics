@@ -12,6 +12,7 @@ import ru.vladpima.allofphysics.models.Post;
 import ru.vladpima.allofphysics.repo.PostRepository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 
 @Controller
@@ -53,6 +54,7 @@ public class BlogController {
         Optional<Post> post = postRepository.findById(id);
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
+        Collections.sort(res, Collections.reverseOrder());
         model.addAttribute("post", res);
         return "blog-details";
     }
