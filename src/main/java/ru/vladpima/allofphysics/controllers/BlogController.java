@@ -54,7 +54,6 @@ public class BlogController {
         Optional<Post> post = postRepository.findById(id);
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
-        Collections.sort(res, Collections.reverseOrder());
         model.addAttribute("post", res);
         return "blog-details";
     }
@@ -94,5 +93,15 @@ public class BlogController {
     public String about(Model model) {
         model.addAttribute("title", "Страница про нас");
         return "about";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String blogDelete(@PathVariable(value = "id") long id,
+                             Model model) {
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new PostNotFoundException("Post not found")
+        );
+        postRepository.delete(post);
+        return "redirect:/";
     }
 }
