@@ -95,7 +95,7 @@ public class BlogController {
         return "about";
     }
 
-    @PostMapping("/{id}/edit")
+    @PostMapping("/{id}/delete")
     public String blogDelete(@PathVariable(value = "id") long id,
                              Model model) {
         Post post = postRepository.findById(id).orElseThrow(
